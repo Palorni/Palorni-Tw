@@ -2,7 +2,7 @@
   "name": "palorni-windows-optimizer",
   "productName": "Palorni Windows Optimizer",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
@@ -54,15 +54,11 @@
       "uninstallDisplayName": "Palorni Windows Optimizer",
       "installerHeaderIcon": "assets/icon.png",
       "artifactName": "Palorni-Windows-Optimizer-Setup.exe"
-    },
-    "zip": {
-      "artifactName": "Palorni-Windows-Optimizer-Portable.zip"
     }
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
-    "@vitejs/plugin-react": "^5.0.4",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",
