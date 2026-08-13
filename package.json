@@ -2,7 +2,7 @@
   "name": "palorni-windows-optimizer",
   "productName": "Palorni Windows Optimizer",
   "private": true,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
@@ -42,8 +42,7 @@
             "x64"
           ]
         }
-      ],
-      "icon": "assets/icon.png"
+      ]
     },
     "nsis": {
       "oneClick": false,
@@ -52,7 +51,6 @@
       "createStartMenuShortcut": true,
       "shortcutName": "Palorni Windows Optimizer",
       "uninstallDisplayName": "Palorni Windows Optimizer",
-      "installerHeaderIcon": "assets/icon.png",
       "artifactName": "Palorni-Windows-Optimizer-Setup.exe"
     }
   },
