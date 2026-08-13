@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   PALORNI SYSTEM OPTIMIZER - THEME ENGINE DESIGN TOKENS & CSS VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Motion & Animations */
+  --transition-speed: 0.22s;
+  --transition-timing: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-scale: 1;
+
+  /* Default Accent (Cyan) - Overridden dynamically by ThemeContext */
+  --color-accent: #38bdf8;
+  --color-accent-hover: #0284c7;
+  --color-accent-bg: rgba(56, 189, 248, 0.15);
+  --color-accent-border: rgba(56, 189, 248, 0.4);
+  --color-accent-text: #38bdf8;
+  --color-accent-glow: rgba(56, 189, 248, 0.25);
+
+  /* Alert Colors (Untouched by accent customization) */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+}
+
+/* Animations Disabled Override */
+[data-animations="false"] {
+  --transition-speed: 0s !important;
+}
+
+[data-animations="false"] *,
+[data-animations="false"] *::before,
+[data-animations="false"] *::after {
+  animation-duration: 0.001s !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001s !important;
+}
+
+/* ==========================================================================
+   1. TEMA PALORNI (Padrão Oficial Palorni Engine)
+   ========================================================================== */
+[data-theme="palorni"] {
+  --bg-primary: #0c0c0c;
+  --bg-secondary: #121212;
+  --bg-card: #161616;
+  --bg-card-hover: #1f1f1f;
+  --bg-input: #1a1a1a;
+  --bg-badge: #1a2228;
+
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+
+  --border-subtle: #262626;
+  --border-strong: #383838;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --backdrop-filter: none;
+}
+
+/* Palorni Light */
+[data-theme="palorni"][data-resolved-appearance="light"] {
+  --bg-primary: #f4f5f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f2f5;
+  --bg-input: #e5e7eb;
+  --bg-badge: #e0f2fe;
+
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+
+  --border-subtle: #e5e7eb;
+  --border-strong: #d1d5db;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --backdrop-filter: none;
+}
+
+/* ==========================================================================
+   2. TEMA WINDOWS 11 (Fluent Design / Mica)
+   ========================================================================== */
+[data-theme="windows11"] {
+  --bg-primary: #1f1f23;
+  --bg-secondary: #27272a;
+  --bg-card: rgba(39, 39, 42, 0.85);
+  --bg-card-hover: rgba(52, 52, 58, 0.95);
+  --bg-input: rgba(255, 255, 255, 0.08);
+  --bg-badge: rgba(255, 255, 255, 0.1);
+
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.22);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --backdrop-filter: blur(16px) saturate(180%);
+}
+
+[data-theme="windows11"][data-resolved-appearance="light"] {
+  --bg-primary: #f3f3f3;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: rgba(245, 245, 245, 0.98);
+  --bg-input: rgba(0, 0, 0, 0.05);
+  --bg-badge: rgba(0, 0, 0, 0.06);
+
+  --text-primary: #1c1c1c;
+  --text-secondary: #5e5e5e;
+  --text-muted: #8e8e8e;
+
+  --border-subtle: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.18);
+
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* ==========================================================================
+   3. TEMA ANDROID (Material Design 3 / Material You)
+   ========================================================================== */
+[data-theme="android"] {
+  --bg-primary: #121318;
+  --bg-secondary: #1b1c22;
+  --bg-card: #25262e;
+  --bg-card-hover: #2e303b;
+  --bg-input: #333542;
+  --bg-badge: #383a48;
+
+  --text-primary: #e2e2e9;
+  --text-secondary: #c5c6d0;
+  --text-muted: #8e909a;
+
+  --border-subtle: #333542;
+  --border-strong: #444756;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --backdrop-filter: none;
+}
+
+[data-theme="android"][data-resolved-appearance="light"] {
+  --bg-primary: #fdf8fd;
+  --bg-secondary: #f3edf7;
+  --bg-card: #f7f2fa;
+  --bg-card-hover: #ede7f3;
+  --bg-input: #e6e0e9;
+  --bg-badge: #e8def8;
+
+  --text-primary: #1d1b20;
+  --text-secondary: #49454f;
+  --text-muted: #79747e;
+
+  --border-subtle: #e7e0ec;
+  --border-strong: #cac4d0;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --backdrop-filter: none;
+}
+
+/* ==========================================================================
+   4. TEMA LIQUID GLASS (Vidro Translúcido com Alta Legibilidade)
+   ========================================================================== */
+[data-theme="liquid-glass"] {
+  --bg-primary: #090d16;
+  --bg-secondary: rgba(15, 23, 42, 0.75);
+  --bg-card: rgba(30, 41, 59, 0.55);
+  --bg-card-hover: rgba(51, 65, 85, 0.65);
+  --bg-input: rgba(255, 255, 255, 0.1);
+  --bg-badge: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --border-subtle: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.28);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  --backdrop-filter: blur(14px) saturate(170%);
+}
+
+[data-theme="liquid-glass"][data-resolved-appearance="light"] {
+  --bg-primary: #edf2f7;
+  --bg-secondary: rgba(255, 255, 255, 0.85);
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-card-hover: rgba(255, 255, 255, 0.90);
+  --bg-input: rgba(0, 0, 0, 0.06);
+  --bg-badge: rgba(0, 0, 0, 0.08);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --border-subtle: rgba(255, 255, 255, 0.85);
+  --border-strong: rgba(255, 255, 255, 0.98);
+
+  --shadow-card: 0 8px 24px 0 rgba(31, 38, 135, 0.10);
+  --backdrop-filter: blur(14px) saturate(170%);
+}
+
+/* ==========================================================================
+   5. TEMA G HUB (Logitech Gaming Style - Alto Contraste)
+   ========================================================================== */
+[data-theme="ghub"] {
+  --bg-primary: #050608;
+  --bg-secondary: #0c0e12;
+  --bg-card: #12161f;
+  --bg-card-hover: #1a202c;
+  --bg-input: #181d28;
+  --bg-badge: #1e2638;
+
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --border-subtle: #1e293b;
+  --border-strong: #334155;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 0 16px rgba(0, 0, 0, 0.85);
+  --backdrop-filter: none;
+}
+
+[data-theme="ghub"][data-resolved-appearance="light"] {
+  --bg-primary: #e2e8f0;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --bg-input: #cbd5e1;
+  --bg-badge: #e2e8f0;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --border-subtle: #cbd5e1;
+  --border-strong: #94a3b8;
+
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.12);
+  --backdrop-filter: none;
+}
+
+/* ==========================================================================
+   THEME MAPPING RULES (Automatic styling adaptors)
+   ========================================================================== */
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing);
+}
+
+/* Map default app layout containers */
+.bg-app-root {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.bg-app-header, header {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-subtle) !important;
+  backdrop-filter: var(--backdrop-filter) !important;
+}
+
+.bg-app-footer, footer {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* Apply theme border-radius dynamically */
+.rounded-theme-sm { border-radius: var(--radius-sm) !important; }
+.rounded-theme-md { border-radius: var(--radius-md) !important; }
+.rounded-theme-lg { border-radius: var(--radius-lg) !important; }
+
+/* Dynamic accent utility classes */
+.text-accent { color: var(--color-accent) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.bg-accent-soft { background-color: var(--color-accent-bg) !important; }
+.border-accent { border-color: var(--color-accent) !important; }
+.border-accent-soft { border-color: var(--color-accent-border) !important; }
+
+/* Accent Hover States */
+.hover-bg-accent:hover {
+  background-color: var(--color-accent) !important;
+}
+.hover-bg-accent-hover:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+
+/* Dynamic Card Tokens Override */
+.theme-card {
+  background-color: var(--bg-card);
+  border-color: var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: var(--backdrop-filter);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing),
+              box-shadow var(--transition-speed) var(--transition-timing);
+}
+
+.theme-card:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-strong);
+}
+
+/* Custom Scrollbar for all themes */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Accessibility Focus Ring */
+*:focus-visible {
+  outline: 2px solid var(--color-accent) !important;
+  outline-offset: 2px !important;
+}

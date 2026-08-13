@@ -1,0 +1,8 @@
+{
+  "name": "Remix Palorni System Optimizer power shell",
+  "description": "Gerenciador de recursos do sistema e utilitário de otimização Windows da Palorni. Inclui leitura de hardware, detecção de jogos, recomendações personalizadas e otimizações completas sem restrições premium.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
