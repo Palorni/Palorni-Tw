@@ -43,7 +43,6 @@
           ]
         }
       ],
-      "icon": "assets/icon.png",
       "artifactName": "Palorni-Windows-Optimizer-Portable.${ext}"
     },
     "nsis": {
@@ -53,14 +52,12 @@
       "createStartMenuShortcut": true,
       "shortcutName": "Palorni Windows Optimizer",
       "uninstallDisplayName": "Palorni Windows Optimizer",
-      "installerHeaderIcon": "assets/icon.png",
       "artifactName": "Palorni-Windows-Optimizer-Setup.exe"
     }
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",
-    "@vitejs/plugin-react": "^5.0.4",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
     "lucide-react": "^0.546.0",
@@ -72,13 +69,12 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
-    "autoprefixer": "^10.4.21",
+    "@vitejs/plugin-react": "^5.0.4",
     "electron": "^43.4.0",
     "electron-builder": "^26.15.3",
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.1.14",
     "tsx": "^4.21.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.3"
+    "typescript": "~5.8.2"
   }
 }
