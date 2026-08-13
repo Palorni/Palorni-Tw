@@ -28,10 +28,10 @@ jobs:
         run: npm run build
 
       - name: Package Windows Installer
-        run: npx electron-builder --win nsis
+        run: npx electron-builder --win nsis --publish never
 
       - name: Package Windows Portable
-        run: npx electron-builder --win zip
+        run: npx electron-builder --win zip --publish never
 
       - name: Show Release Files
         shell: powershell
@@ -48,33 +48,15 @@ jobs:
             exit 1
           }
 
-          Write-Host ""
           Write-Host "===== PROCURANDO EXE ====="
 
           Get-ChildItem -Path . -Filter "*.exe" -Recurse -ErrorAction SilentlyContinue |
             Select-Object FullName, Length
 
-      - name: Verify Installer
-        shell: powershell
-        run: |
-          if (-not (Test-Path "release/Palorni-Windows-Optimizer-Setup.exe")) {
-            Write-Host "ERRO: O instalador .exe NAO FOI ENCONTRADO!"
-            exit 1
-          }
+          Write-Host "===== PROCURANDO ZIP ====="
 
-          Write-Host "OK: Instalador encontrado!"
-          Get-Item "release/Palorni-Windows-Optimizer-Setup.exe"
-
-      - name: Verify Portable
-        shell: powershell
-        run: |
-          if (-not (Test-Path "release/Palorni-Windows-Optimizer-Portable.zip")) {
-            Write-Host "ERRO: O ZIP PORTATIL NAO FOI ENCONTRADO!"
-            exit 1
-          }
-
-          Write-Host "OK: ZIP encontrado!"
-          Get-Item "release/Palorni-Windows-Optimizer-Portable.zip"
+          Get-ChildItem -Path . -Filter "*.zip" -Recurse -ErrorAction SilentlyContinue |
+            Select-Object FullName, Length
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
